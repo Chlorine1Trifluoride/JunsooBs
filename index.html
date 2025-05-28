@@ -1,23 +1,46 @@
 <!DOCTYPE html>
-<html lang='ko'>
-  <head>
-    <meta charset="UTF-8"/>
-    <title>준수의 병신짓 목록</title>
-  </head>
-  <body>
-    <h1>준수의 병신짓 리스트</h1>
-    <ul>
-      <li>아직까지 살아있다.</li>
-      <li>수련회떄 방 베란다에서 빅뱅 노래 들으면서 방방 뛰었다.</li>
-      <li>아직까지 안 죽었다.</li>
-      <li>병신이다.</li>
-      <li>지각을 안하려고 결석을 했다.</li>
-      <li>시험날에 자리를 바꿔서 좆될뻔했다.</li>
-      <li>Joat이 3cm다.</li>
-      <li>이 모 군에게 패드립하다 쌤한테 걸린 적이 있다.</li>
-      <li>아직까지 안 죽었다.</li>
-      <li>나치즘을 옹호한다.</li>
-      <li>도서관에서 '벌거벗은 세계사' 책을 보고 실제로 벌거벗으려고 시도하다 저지되었다.</li>
-    </ul>
-  </body>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>유튜브 임베드 실행기</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+    input { width: 400px; padding: 10px; }
+    iframe { margin-top: 20px; width: 560px; height: 315px; border: none; }
+  </style>
+</head>
+<body>
+
+  <h1>유튜브 영상 임베더</h1>
+  <input type="text" id="url" placeholder="유튜브 영상 URL을 입력하세요">
+  <button onclick="embed()">영상 불러오기</button>
+
+  <div id="player"></div>
+
+  <script>
+    function extractVideoID(url) {
+      // 다양한 유튜브 URL 패턴 지원
+      const regex = /(?:youtube\.com\/.*v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+      const match = url.match(regex);
+      return match ? match[1] : null;
+    }
+
+    function embed() {
+      const input = document.getElementById('url').value;
+      const videoId = extractVideoID(input);
+
+      if (videoId) {
+        const embedHTML = `
+          <iframe 
+            src="https://www.youtube.com/embed/${videoId}" 
+            allowfullscreen>
+          </iframe>`;
+        document.getElementById('player').innerHTML = embedHTML;
+      } else {
+        alert("올바른 유튜브 영상 주소를 입력하세요.");
+      }
+    }
+  </script>
+
+</body>
 </html>
