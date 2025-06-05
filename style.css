@@ -8,7 +8,7 @@ p{
     font-size: 15px;
     font-weight:500;
     line-height:1;
-    font-family: "Nanum Pen Script", cursice
+    font-family: "Nanum Pen Script", cursive;
 }
 h1{
     color:#f00;
@@ -16,5 +16,13 @@ h1{
     font-weight:50;
     line-height:1;
 }
-input { width: 400px; padding: 10px; }
-iframe { margin-top: 20px; width: 560px; height: 315px; border: none; }
+input { 
+    width: 400px; 
+    padding: 10px; 
+}
+iframe { 
+    margin-top: 20px; 
+    width: 560px; 
+    height: 315px; 
+    border: none; 
+}
